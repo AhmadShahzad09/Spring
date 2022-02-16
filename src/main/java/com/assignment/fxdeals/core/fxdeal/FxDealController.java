@@ -20,18 +20,7 @@ public class FxDealController {
 
     @GetMapping
     public ResponseEntity<Map<String, List<FxDealDto>>> getAll() {
-        log.info("GET /api/v1/fx-deals called");
-        Map<String, List<FxDealDto>> response = new HashMap<>();
-        List<FxDeal> fxDeals;
-        List<FxDealDto> responseBody = new LinkedList<>();
-
-        fxDeals = fxDealService.getAll();
-
-        for(FxDeal fxDeal : fxDeals){
-            responseBody.add(fxDeal.generateFxDealDto());
-        }
-        response.put("responseBody", responseBody);
-        return ResponseEntity.ok(response);
+//write your code here
     }
 
     @GetMapping("/{id}")
@@ -48,19 +37,19 @@ public class FxDealController {
         return ResponseEntity.ok(fxDeal.generateFxDealDto());
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<FxDealDto> update(@PathVariable("id") String id,
-//                                             @RequestBody FxDealDto fxDealDto) {
-//
-//        FxDeal fxDealOptional = fxDealService.update(id, fxDealDto);
-//        return ResponseEntity.ok(fxDealOptional.generateFxDealDto());
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<FxDealDto> delete(@PathVariable("id") String id) {
-//
-//        fxDealService.delete(id);
-//        return ResponseEntity.ok().build();
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<FxDealDto> update(@PathVariable("id") String id,
+                                             @RequestBody FxDealDto fxDealDto) {
+
+        FxDeal fxDealOptional = fxDealService.update(id, fxDealDto);
+        return ResponseEntity.ok(fxDealOptional.generateFxDealDto());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<FxDealDto> delete(@PathVariable("id") String id) {
+
+        fxDealService.delete(id);
+        return ResponseEntity.ok().build();
+    }
 
 }

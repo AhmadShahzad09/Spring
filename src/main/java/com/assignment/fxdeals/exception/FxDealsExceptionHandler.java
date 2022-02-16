@@ -30,31 +30,7 @@ public class FxDealsExceptionHandler {
     public final ResponseEntity<Object> handleException(
             Exception exception, WebRequest request) throws Exception {
 
-        String message = "error: " + exception.getMessage()
-                + ", cause: " + exception.getCause();
-
-        logger.warn(message.replaceAll("[\r\n]", " "));
-
-        int status = SERVER_ERROR_CODE;
-
-        if (exception instanceof FxDealsException) {
-            FxDealsException myException = (FxDealsException) exception;
-            status = Integer.parseInt(myException.getCode());
-        } else {
-            ResponseEntity response =
-                    delegate.handleException(exception, request);
-            if (response != null) {
-                status = response.getStatusCodeValue();
-            }
-        }
-        return ResponseEntity
-                .status(status)
-                .body(generateError(
-                        String.valueOf(status),
-                        exception.getMessage(),
-                        String.valueOf(exception.getCause())
-                        )
-                );
+    // write your code here
     }
 
 

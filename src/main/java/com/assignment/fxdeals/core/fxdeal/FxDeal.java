@@ -65,13 +65,8 @@ public class FxDeal {
     public FxDealDto generateFxDealDto() {
 
         FxDealDto fxDealDto = new FxDealDto();
-
-        fxDealDto.setId(this.id);
-        fxDealDto.setFromCurrency(this.fromCurrency);
-        fxDealDto.setToCurrency(this.toCurrency);
-        fxDealDto.setTimestamp(this.timestamp);
-        fxDealDto.setAmount(this.amount);
-
+        //write your code here
+        
         return fxDealDto;
     }
 

@@ -27,30 +27,7 @@ export class FxDealSearchComponent {
   }
 
   async getFxDealByUniqueId(id: string) {
-    this.loading.emit(true);
-    try {
-      const response = await this.dataService.getFxDealByUniqueId(id);
-      if (!response.ok) {
-        const { error } = await response.json();
-        this.fxDeal = undefined;
-        this.alert.emit({
-          visible: true,
-          status: 'danger',
-          message: error.message,
-        });
-        return;
-      }
-      this.fxDeal = await response.json();
-    } catch (e) {
-      this.fxDeal = undefined;
-      this.alert.emit({
-        visible: true,
-        status: 'danger',
-        message: 'Error!',
-      });
-    } finally {
-      this.loading.emit(false);
-    }
+    //write your code here
   }
 
 }

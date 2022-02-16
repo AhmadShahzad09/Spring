@@ -33,39 +33,29 @@ public class FxDealService {
 
     public FxDeal create(FxDealDto fxDealDto) {
 
-        if (fxDealDto.getId() != null
-                && fxDealRepository.findById(fxDealDto.getId()).isPresent()
-        ) {
-            log.warn("POST /api/v1/fx-deals/{id} returned 409, where id: {}", fxDealDto.getId());
-            throw new FxDealsException("409", "FX Deal with this Unique ID already exists!");
-        }
+    //write your code here
+
+    }
+
+    public FxDeal update(String id, FxDealDto fxDealDto) {
+
         if (!fxDealDto.validate()) {
-            log.warn("POST /api/v1/fx-deals/{id} returned 400");
             throw new FxDealsException("400", "FX Deal fields not valid!");
         }
 
-        return fxDealRepository.save(fxDealDto.generateEntity());
+        FxDeal fxDeal = get(id);
+        fxDeal.setFromCurrency(fxDealDto.getFromCurrency());
+        fxDeal.setToCurrency(fxDealDto.getToCurrency());
+        fxDeal.setTimestamp(fxDealDto.getTimestamp());
+        fxDeal.setAmount(fxDealDto.getAmount());
+
+        fxDealRepository.save(fxDeal);
+
+        return fxDeal;
     }
 
-//    public FxDeal update(String id, FxDealDto fxDealDto) {
-//
-//        if (!fxDealDto.validate()) {
-//            throw new FxDealsException("400", "FX Deal fields not valid!");
-//        }
-//
-//        FxDeal fxDeal = get(id);
-//        fxDeal.setFromCurrency(fxDealDto.getFromCurrency());
-//        fxDeal.setToCurrency(fxDealDto.getToCurrency());
-//        fxDeal.setTimestamp(fxDealDto.getTimestamp());
-//        fxDeal.setAmount(fxDealDto.getAmount());
-//
-//        fxDealRepository.save(fxDeal);
-//
-//        return fxDeal;
-//    }
-//
-//    public void delete(String id) {
-//        fxDealRepository.delete(get(id));
-//    }
+    public void delete(String id) {
+        fxDealRepository.delete(get(id));
+    }
 
 }

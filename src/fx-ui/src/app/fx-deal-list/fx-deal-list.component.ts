@@ -20,31 +20,7 @@ export class FxDealListComponent {
   }
 
   async getAllFxDeals() {
-    this.loading.emit(true);
-    try {
-      const response = await this.dataService.getAllFxDeals();
-      if (!response.ok) {
-        const { error } = await response.json();
-        this.fxDeals = [];
-        this.alert.emit({
-          visible: true,
-          status: 'danger',
-          message: error.message,
-        });
-        return;
-      }
-      const { responseBody } = await response.json();
-      this.fxDeals = JSON.parse(JSON.stringify(responseBody));
-    } catch (e) {
-      this.fxDeals = [];
-      this.alert.emit({
-        visible: true,
-        status: 'danger',
-        message: 'Error!',
-      });
-    } finally {
-      this.loading.emit(false);
-    }
+    //write your code here
   }
 
 }

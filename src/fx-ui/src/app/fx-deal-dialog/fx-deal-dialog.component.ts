@@ -18,16 +18,7 @@ export class FxDealDialogComponent {
   constructor(private formBuilder: FormBuilder) {}
 
   formChange() {
-    const { fromCurrency, toCurrency, amount } = this.dealForm.value;
-    this.dealForm.patchValue({
-      fromCurrency: fromCurrency.toUpperCase(),
-      toCurrency: toCurrency.toUpperCase(),
-    });
-    if (amount) {
-      this.dealForm.patchValue({
-        amount: parseFloat(amount).toFixed(2),
-      });
-    }
+    //write your code here
   }
 
 }

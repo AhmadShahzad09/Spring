@@ -36,33 +36,7 @@ export class AppComponent {
   }
 
   async createFxDeal(fxDeal: FxDeal) {
-    this.loading = true;
-    try {
-      const response = await this.dataService.createFxDeal(fxDeal);
-      if (!response.ok) {
-        const { error } = await response.json();
-        this.setAlertState({
-          visible: true,
-          status: 'danger',
-          message: error.message,
-        });
-        return;
-      }
-      this.setAlertState({
-        visible: true,
-        status: 'success',
-        message: 'Success!',
-      });
-      this.refreshList();
-    } catch (e) {
-      this.setAlertState({
-        visible: true,
-        status: 'danger',
-        message: 'Error!',
-      });
-    } finally {
-      this.loading = false;
-    }
+    //write your code here
   }
 
   setAlertState(alertState: AlertState) {
