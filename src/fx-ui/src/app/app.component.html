@@ -30,9 +30,17 @@
     </fx-deal-search>
   </div>
   <div class="row">
+
+    <app-data-table>
+    </app-data-table>
     <fx-deal-list #list
       (alert)="setAlertState($event)"
       (loading)="onLoading($event)">
     </fx-deal-list>
   </div>
+<div class = "container-top">
+  <div class = "row">
+    <app-top-bar>
+      <img src="assets/img/currency.png">
+    </app-top-bar>
 </div>

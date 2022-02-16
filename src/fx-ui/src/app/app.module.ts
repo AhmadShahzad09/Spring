@@ -14,6 +14,10 @@ import { FxDealComponent } from './fx-deal/fx-deal.component';
 import { FxDealSearchComponent } from './fx-deal-search/fx-deal-search.component';
 import { FxDealListComponent } from './fx-deal-list/fx-deal-list.component';
 import { FxDealDialogComponent } from './fx-deal-dialog/fx-deal-dialog.component';
+import { DataTableComponent } from './data-table/data-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,7 @@ import { FxDealDialogComponent } from './fx-deal-dialog/fx-deal-dialog.component
     FxDealSearchComponent,
     FxDealListComponent,
     FxDealDialogComponent,
+    DataTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,9 @@ import { FxDealDialogComponent } from './fx-deal-dialog/fx-deal-dialog.component
     MatGridListModule,
     MatDialogModule,
     MatProgressSpinnerModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
